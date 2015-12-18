@@ -1,0 +1,6 @@
+var progress = $("#traineeProgress");
+progress.find(".modal-body").html("<%= j render 'view_progress', user: @user  %>")
+progress.find(".progress-bar").each(function(){
+  var percent = $(this).data("percent");
+  $(this).css("width", percent);
+});

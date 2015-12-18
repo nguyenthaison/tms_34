@@ -2,7 +2,7 @@ class Supervisor::UsersController < ApplicationController
   before_action :load_user, except: [:create, :new]
 
   def index
-    @users = User.all.paginate page: params[:page]
+    @users = User.trainees.paginate page: params[:page]
   end
 
   def new
@@ -16,6 +16,13 @@ class Supervisor::UsersController < ApplicationController
       redirect_to supervisor_users_path
     else
       render :new
+    end
+  end
+
+  def show
+    respond_to do |format|
+      format.html
+      format.js{@user}
     end
   end
 

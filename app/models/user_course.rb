@@ -2,6 +2,7 @@ class UserCourse < ActiveRecord::Base
   belongs_to :course
   belongs_to :user
 
+  has_many :user_tasks
   validates :course_id, uniqueness: {scope: :user_id}
   validate :only_active_one_course_for_trainee
 

@@ -1,0 +1,11 @@
+<% if user.courses.size > 0 %>
+  <h2><%= user.user_courses.find_by(is_active: true).course.name %></h2>
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+       data-percent="<%= trainee_progress(user) %>">
+      <%= trainee_progress(user) %>
+    </div>
+  </div>
+<% else %>
+  <%= t "supervisor.users.no_course" %>
+<% end %>
