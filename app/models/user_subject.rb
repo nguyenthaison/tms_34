@@ -1,4 +1,5 @@
 class UserSubject < ActiveRecord::Base
+  DESCRIPTION = "You have finish subject at: "
   belongs_to :subject
   belongs_to :user
   has_many :user_tasks
@@ -13,6 +14,10 @@ class UserSubject < ActiveRecord::Base
   private
   def finish_subject
     if status == false
+      @type_id = Activity.where(["user_id = ? AND action_type LIKE '%SUBJECT'", user.id]).pluck(:type_id)
+      unless @type_id.include? subject.id
+        Activity.add_activity Activity::ACTION[:FINISH_SUBJECT], subject.id, user.id, DESCRIPTION
+      end
       @tasks = self.subject.tasks
       @tasks.each do |task|
         UserTask.find_or_create_by!(user_id: self.user.id, task_id: task.id,user_subject_id: id)

@@ -12,6 +12,7 @@ class UserSubjectsController < ApplicationController
       redirect_to user_subject_path @user_subject
     end
 
+
   def show
     @tasks = @subject.tasks
     @user_id = @user_subject.user_id
@@ -19,6 +20,8 @@ class UserSubjectsController < ApplicationController
       @user_subject.user_tasks.find_or_initialize_by task_id: task.id,
         user_id: @user_id
     end
+    @activities = Activity.activities_of_subject(@subject)
+      .paginate page: params[:page], per_page: 10
   end
 
   private

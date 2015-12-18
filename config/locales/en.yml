@@ -27,6 +27,7 @@ en:
       showProfile: "Show profile"
       users: "Users"
       task: "All tasks"
+      activity: "History activity"
     button:
       create_course: "Create"
       edit: "Edit"
@@ -96,12 +97,16 @@ en:
       course: "course"
     show:
       members: "Members: "
+      title: "Subject has started "
   user_subjects:
     show:
       update: "Update"
       progress: "Progress Bar With Label"
       finish: "finish"
       confirm: "You really want to finish subject!"
+      to: "To"
+      from: "From"
+      title: "Subject has started "
     update:
       success: "Update success"
       errors: "Update errors"

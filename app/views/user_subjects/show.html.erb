@@ -35,14 +35,29 @@
         <% end %>
       <% end %>
     </div>
-    <div class="col-md-4">
-      <h4><%= t ".progress" %></h4>
-      <div class="progress">
-        <div class="progress-bar progress-bar-danger progress-bar-striped active"
-          role="progressbar" aria-valuemin="0" aria-valuemax="100">
-          <%= percent_complete_subject(@subject,@user_subject) %>
-        </div>
+    <div class="col-md-4" data-spy="scroll" data-target=".activity-log" data-offset="50">
+      <div class="activity-log">
+        <%= render "shared/activities_log", activities: @activities %>
+        <p>
+          <span>
+            <i class="glyphicon glyphicon-calendar"></i>
+          </span>
+          <%= t ".title" %>
+          <%= t ".from" %>
+          <%= @subject.created_at.strftime "%d-%m-%Y" %>
+          <%= t ".to" %>
+          <%= @subject.updated_at.strftime "%d-%m-%Y" %>
+        </p>
       </div>
+      <div>
+        <h4><%= t ".progress" %></h4>
+        <div class="progress">
+          <div class="progress-bar progress-bar-danger progress-bar-striped active"
+            role="progressbar" aria-valuemin="0" aria-valuemax="100">
+            <%= percent_complete_subject(@subject,@user_subject) %>
+          </div>
+        </div>
+      </div
     </div>
   </div>
 </div>
