@@ -46,6 +46,10 @@
         <%= link_to t("application.button.show"),
           supervisor_course_path(course) %>
       </li>
+      <li>
+        <%= link_to t("supervisor.user_courses.add_trainee"),
+          supervisor_course_assign_trainee_path(course) %>
+      </li>
       <li><%= link_to t("application.button.show_trainee"),
         supervisor_course_assign_trainees_path(course) %></li>
       <li><%= link_to t("supervisor.user_courses.add_supervisor"),

@@ -44,12 +44,17 @@ class Supervisor::CoursesController < Supervisor::BaseController
   end
 
   def update
-    if @course.update_attributes course_params
-      flash[:success] = t "flash.course_update_success"
-      redirect_to supervisor_root_url
-    else
-      flash[:danger] = t "flash.subject_update_failed"
-      render :edit
+    begin
+      if @course.update_attributes course_params
+        flash[:success] = t "flash.course_update_success"
+        redirect_to supervisor_root_url
+      else
+        flash[:danger] = t "flash.subject_update_failed"
+        render :edit
+      end
+    rescue ActiveRecord::RecordInvalid => invalid
+      flash[:danger] = invalid.record.errors[:actived]
+      redirect_to supervisor_course_assign_trainee_path(@course)
     end
   end
 
@@ -67,7 +72,7 @@ class Supervisor::CoursesController < Supervisor::BaseController
   def course_params
     params.require(:course).permit :name, :description, :start_date, :end_date,
       :status, course_subjects_attributes:[:id, :course_id, :subject_id, :_destroy],
-      user_courses_attributes:[:id, :user_id, :course_id, :is_active, :_destroy]
+      user_courses_attributes:[:id, :user_id, :course_id, :is_active, :_destroy], user_ids: []
   end
 
   def load_course

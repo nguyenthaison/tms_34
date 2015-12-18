@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="row">
+    <%= form_for [:supervisor, @course] do |f| %>
+      <table class="table">
+        <thead>
+          <tr class="center">
+            <td><%= t ".name" %></td>
+            <td><%= t ".email" %></td>
+            <td><%= t ".change" %></td>
+          </tr>
+        </thead>
+        <tbody>
+          <%= collection_check_boxes :course, :user_ids, @trainees, :id, :name do |b| %>
+            <tr class="center">
+              <td><%= b.object.name %></td>
+              <td><%= b.object.email %></td>
+              <td><%= b.check_box %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= f.submit t("application.button.submit"), class: "btn btn-primary col-md-6 col-md-offset-3" %>
+    <% end %>
+  </div>
+</div>

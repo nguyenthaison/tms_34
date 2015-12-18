@@ -77,6 +77,8 @@ en:
     owner: "You are not owner of this course"
     destroy_ok: "This course has been deleted ."
     destroy_failed: "Delete course is failed. Please check again"
+    only_assigned_to_one_active_course: "%{user} has already been assigned to one active course"
+    course_is_finished: "Course is finished"
   sessions:
     new:
       login: "Log in"
@@ -165,3 +167,10 @@ en:
       delete_flash_fail: "Fail delete record!"
     user_courses:
       add_supervisor: "Add supervisor"
+      add_trainee: "Add trainee"
+    assign_trainees:
+      show:
+        name: "Name"
+        email: "Email"
+        change: "Change"
+
