@@ -29,4 +29,19 @@ module ApplicationHelper
       number_to_percentage percent, precision: 0
   end
 
+  def trainee_progress user
+    course = user.user_courses.find_by(is_active: true).course
+    user_courses = course.user_courses
+    @task_finishs = 0
+    user_courses.each do |user_course|
+      @task_finishs = @task_finishs + user_course.user_tasks.size
+    end
+    subjects = course.subjects
+    @number_of_tasks = 0
+    subjects.each do |subject|
+      @number_of_tasks = @number_of_tasks + subject.tasks.size
+    end
+    percent = @number_of_tasks > 0 ? @task_finishs * 100.0 / @number_of_tasks : 0
+    number_to_percentage percent, precision: 0
+  end
 end

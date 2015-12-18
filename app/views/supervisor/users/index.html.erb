@@ -19,10 +19,27 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= link_to t("supervisor.users.view_progress"), edit_supervisor_user_path(user), class: "btn btn-info" %></td>
+        <td><%= link_to t("supervisor.users.view_progress"), supervisor_user_path(user), class: "btn btn-info", data: {toggle:"modal", target: "#traineeProgress", remote: true, method: :get} %></td>
         <td><%= link_to t("supervisor.users.edit"), edit_supervisor_user_path(user), class: "btn btn-primary" %></td>
         <td><%= link_to t("supervisor.users.delete"), supervisor_user_path(user), method: :delete, data: {confirm: t("supervisor.users.delete_confirm")}, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%= will_paginate %>
+<div id="traineeProgress" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><%= t "application.general.title_trainee_progress" %></h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><%= t "application.general.close_trainee_progress" %></button>
+      </div>
+    </div>
+  </div>
+</div>

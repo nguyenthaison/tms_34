@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20151216014923) do
     t.integer  "task_id"
     t.integer  "user_id"
     t.integer  "course_subject_id"
+    t.integer  "user_course_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "user_subject_id"

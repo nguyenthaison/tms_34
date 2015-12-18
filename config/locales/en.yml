@@ -28,6 +28,8 @@ en:
       users: "Users"
       task: "All tasks"
       activity: "History activity"
+      title_trainee_progress: "Trainee progress"
+      close_trainee_progress: "Close"
     button:
       create_course: "Create"
       edit: "Edit"
@@ -170,6 +172,7 @@ en:
       delete_confirm: "Are you sure?"
       delete_flash_success: "Success delete record!"
       delete_flash_fail: "Fail delete record!"
+      no_course: "Trainee hasn't ever joined to any courses yet"
     user_courses:
       add_supervisor: "Add supervisor"
       add_trainee: "Add trainee"
