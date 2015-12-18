@@ -34,22 +34,38 @@
         </p>
       </div>
     </div>
+    <div class="col-md-3">
+      <div class="activity-log">
+        <%= render "shared/activities_log", activities: @activities %>
+        <p>
+          <span>
+            <i class="glyphicon glyphicon-calendar"></i>
+          </span>
+          <%= t ".title" %>
+          <%= t ".from" %>
+          <%= @course.created_at.strftime "%d-%m-%Y" %>
+          <%= t ".to" %>
+          <%= @course.updated_at.strftime "%d-%m-%Y" %>
+        </p>
+      </div>
+    </div>
   </div>
 
-<div id="viewMembers" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><%= t ".all_members", course: @course.name %></h4>
-      </div>
-      <div class="modal-body">
-        <%= render "courses/members" %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">
-          <%= t "application.buttons.close" %>
-        </button>
+  <div id="viewMembers" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><%= t ".all_members", course: @course.name %></h4>
+        </div>
+        <div class="modal-body">
+          <%= render "courses/members" %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            <%= t "application.buttons.close" %>
+          </button>
+        </div>
       </div>
     </div>
   </div>
