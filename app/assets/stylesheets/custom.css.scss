@@ -124,22 +124,15 @@ h1 {
 }
 
 .row.information {
-  border: 1px solid #000099;
-  width: 600px;
+  border: 1px solid #ccc;
   margin-top: 40px;
-  margin-left: 150px;
-  height: 70px;
-  .row1 {
-    margin-top: 10px;
-    span {
-      color: #FF6600;
-    }
+  background-color: #fff;
+  #name-information {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0px;
   }
-  .row2{
-    margin-top: 10px;
-    span {
-      color: #FF6600;
-    }
+  #email-information {
+    padding: 10px 0px;
   }
 }
 .table.table-bordered {
@@ -212,3 +205,40 @@ table.table-striped {
   height: 300px;
 }
 
+#user_course_detail h2 {
+  color: #000099;
+}
+
+#course_date div {
+  display: block;
+  .date-format {
+    color: red;
+  }
+  div {
+    padding: 6px 0px;
+  }
+}
+
+#subject_user_detail {
+  background-color: #fff;
+  margin-top: 20px;
+  h4 {
+    color: #006600;
+  }
+  button {
+    margin-top: 2px;
+  }
+  .task_user_detail {
+    background: #CCCCFF;
+    margin-top: 5px;
+  }
+  .subject_status {
+    padding-left: 15px;
+  }
+  #subject_starting {
+    margin-left: 15px;
+  }
+  #subject_finished {
+    margin-left: 15px;
+  }
+}

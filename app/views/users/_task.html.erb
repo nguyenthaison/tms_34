@@ -1,0 +1,12 @@
+<div class="col-md-12 task_user_detail">
+  <div class="col-md-3">
+    <h5><%= task.name %></h5>
+  </div>
+  <div class="col-md-6">
+    <% if @user.include? task %>
+      <button class="btn btn-success disabled"><%= t "user_tasks.status.finished" %></button>
+    <% else %>
+      <button class="btn btn-danger disabled"><%= t "user_tasks.status.pending" %></button>
+    <% end %>
+  </div>
+</div>

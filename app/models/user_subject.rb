@@ -2,6 +2,7 @@ class UserSubject < ActiveRecord::Base
   DESCRIPTION = "You have finish subject at: "
   belongs_to :subject
   belongs_to :user
+  belongs_to :course
   has_many :user_tasks
 
   scope :by_user_of_subject, ->user, course{where course_id: course.id, user_id: user.id}

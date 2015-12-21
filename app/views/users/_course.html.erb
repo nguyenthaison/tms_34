@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-3" id="user_course_detail">
+    <h2><%= course.name %></h2>
+  </div>
+  <div class="col-md-6" id="course_date">
+    <div class="course_start_date">
+      <div class="col-md-6"><%= t "application.general.start_date" %></div>
+      <div class="col-md-6"><span class="date-format"><%= course.start_date %></span></div>
+    </div>
+    <div class="course_end_date">
+      <div class="col-md-6"><%= t "application.general.end_date" %></div>
+      <div class="col-md-6"><span class="date-format"><%= course.end_date %></span></div>
+    </div>
+  </div>
+  <div class="col-md-3">
+   <button class="btn btn-danger disabled"><%= course.status %></button>
+  </div>
+</div>
+

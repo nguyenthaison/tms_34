@@ -1,22 +1,24 @@
 <% provide :title, t("application.general.showProfile") %>
 <div class="container">
-  <div class="row information">
-    <div class="row1">
-      <div id="showName" class="col-md-9">
-        <div class="col-md-3">
-          <strong><%= t "application.model.nameShow" %></strong>
-        </div>
-        <div class="col-md-6"><strong><span><%= @user.name %></span></strong></div>
+  <div class="col-md-7">
+    <div class="row information">
+      <div class="col-md-12" id="name-information">
+        <div class="col-md-3"><strong><%= t "application.model.nameShow" %></strong></div>
+        <div class="col-md-9"><%= @user.name %></div>
+      </div>
+      <div class="col-md-12" id="email-information">
+        <div class="col-md-3"><strong><%= t "application.model.emailShow" %></strong></div>
+        <div class="col-md-9"><%= @user.email %></div>
       </div>
     </div>
-    <div class="row2">
-      <div class="col-md-9">
-        <div class="col-md-3">
-          <strong><%= t "application.model.emailShow" %></strong>
-        </div>
-        <div class="col-md-6"><strong><span><%= @user.email %></span></strong></div>
-      </div>
-    </div>
+    <br/>
+    <% @user.courses.active.each do |course| %>
+      <%= render "course", course: course %>
+      <% course.user_subjects.by_user_of_subject(@user, course).each do |user_subject|%>
+        <%= render "subject", subject: user_subject.subject, user_subject: user_subject, user: @user %>
+      <% end %>
+    <% end %>
   </div>
 </div>
+
 
