@@ -51,6 +51,10 @@ class User < ActiveRecord::Base
     SecureRandom.urlsafe_base64
   end
 
+  def include? task
+    self.user_tasks.map(&:task_id).include?(task.id)
+  end
+
   private
   def downcase_email
     self.email = email.downcase

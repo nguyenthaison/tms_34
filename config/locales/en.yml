@@ -30,6 +30,8 @@ en:
       activity: "History activity"
       title_trainee_progress: "Trainee progress"
       close_trainee_progress: "Close"
+      start_date: "Start date:"
+      end_date: "End date:"
     button:
       create_course: "Create"
       edit: "Edit"
@@ -38,6 +40,9 @@ en:
       update: "Update"
       up_subject: "Subject"
       submit: "Submit"
+      no_task: "No task"
+      show: "Show"
+      hide: "Hide"
     label:
       owner: "Owner"
       super: "Supervisor"
@@ -113,6 +118,13 @@ en:
       success: "Update success"
       errors: "Update errors"
       finish: "Your Subject has finish"
+    status:
+      starting: "Staring"
+      finished: "finished"
+  user_tasks:
+    status:
+      pending: "Pending"
+      finished: "Finished"
   supervisor:
     courses:
       new:

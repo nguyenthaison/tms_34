@@ -13,8 +13,8 @@
 supervisor_id = 2
 admin = 56
 c = Course.first
-UserCourse.create(user_id: 2, course_id: c.id, is_active = false)
-UserCourse.create(user_id: 56, course_id: c.id, is_active = false)
+UserCourse.create(user_id: 2, course_id: c.id, is_active: false)
+UserCourse.create(user_id: 56, course_id: c.id, is_active: false)
 # 50.times do |n|
 #   name  = Faker::Name.name
 #   email = "trainee-#{n+1}@tms34.com"

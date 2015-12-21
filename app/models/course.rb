@@ -6,6 +6,7 @@ class Course < ActiveRecord::Base
   has_many :users, through: :user_courses
   has_many :course_subjects
   has_many :subjects, through: :course_subjects
+  has_many :user_subjects, dependent: :destroy
 
   validates :description, presence: true, length: {minimum: 100}
   validate  :end_date_greate_or_equal_than_start_date

@@ -22,7 +22,12 @@
               <%= t "application.general.account" %> <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to t("application.general.profile"),  [:supervisor, current_user] %></li>
+              <% if current_user.trainee? %>
+                <li><%= link_to t("application.general.profile"), current_user %></li>
+              <% end %>
+              <% if current_user.admin? %>
+                <li><%= link_to t("application.general.profile"),  [:supervisor, current_user] %></li>
+              <% end %>
               <li><%= link_to t("application.general.settings"), edit_user_path(current_user) %></li>
               <li class="divider"></li>
               <li>

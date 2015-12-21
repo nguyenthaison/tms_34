@@ -1,0 +1,24 @@
+<div class="row" id ="subject_user_detail">
+  <div class="col-md-3">
+    <h4><%= subject.name %></h4>
+  </div>
+  <div class="col-md-6">
+    <% if user_subject.status == true %>
+      <button class="btn btn-success disabled" id="subject_starting"><%= t "user_subjects.status.starting" %></button>
+    <% else %>
+      <button class="btn btn-success disabled" id="subject_finished"><%= t "user_subjects.status.finished" %></button>
+    <% end %>
+  </div>
+  <div class="col-md-3">
+    <% if subject.tasks.size == 0 %>
+      <button class="btn btn-warning disabled"><%= t "applicaion.button.no_task" %></button>
+    <% else %>
+      <button type="button" class="btn btn-primary show_task" id="toggle_show_tasks" data-toggle="collapse" data-target="#show_tasks<%= subject.id%>"><%= t "applicaion.button.show" %></button>
+    <% end %>
+  </div>
+  <div class="col-md-12 collapse in show_all_task" id="show_tasks<%= subject.id %>">
+    <% subject.tasks.each do |task| %>
+    <%= render "task", subject: subject, task: task, user: @user %>
+  <% end %>
+  </div>
+</div>
