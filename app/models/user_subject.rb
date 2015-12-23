@@ -1,5 +1,4 @@
 class UserSubject < ActiveRecord::Base
-  DESCRIPTION = "You have finish subject at: "
   belongs_to :subject
   belongs_to :user
   belongs_to :course
@@ -17,7 +16,7 @@ class UserSubject < ActiveRecord::Base
     if status == false
       @type_id = Activity.where(["user_id = ? AND action_type LIKE '%SUBJECT'", user.id]).pluck(:type_id)
       unless @type_id.include? subject.id
-        Activity.add_activity Activity::ACTION[:FINISH_SUBJECT], subject.id, user.id, DESCRIPTION
+        Activity.add_activity Activity::ACTION[:FINISH_SUBJECT], subject.id, user.id
       end
       @tasks = self.subject.tasks
       @tasks.each do |task|

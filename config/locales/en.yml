@@ -32,6 +32,8 @@ en:
       close_trainee_progress: "Close"
       start_date: "Start date:"
       end_date: "End date:"
+      timeago: "you has finished subject %{time} ago"
+
     button:
       create_course: "Create"
       edit: "Edit"
@@ -104,7 +106,7 @@ en:
       course: "course"
     show:
       members: "Members: "
-      title: "Subject has started "
+      title: "Course has started "
   user_subjects:
     show:
       update: "Update"
@@ -113,7 +115,7 @@ en:
       confirm: "You really want to finish subject!"
       to: "To"
       from: "From"
-      title: "Subject has started "
+      title: "Subject has started: "
     update:
       success: "Update success"
       errors: "Update errors"

@@ -60,8 +60,6 @@ footer {
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
   color: $gray-light;
-  position: fixed;
-  bottom: 0;
   a {
     color: $gray;
     &:hover {
@@ -170,12 +168,12 @@ hr {
 .task{
   background-color: #2ba6cb;
     height: 100px;
-    width: 151px;
-    margin: 10px;
+    width: 100%;
+
 }
 
 .progress{
-  background-color: #A9A9A9
+  background-color: #B3B3B3
 }
 
 .description{
@@ -200,9 +198,22 @@ table.table-striped {
 }
 
 /*activity log*/
-.activity-log{
-  width: 277px;
-  height: 300px;
+.colum-left{
+  border: 1px solid #F6F7F8;
+  background-color: #F9F9F9;
+  .activity-log{
+    background-color: #DDE0E8;
+    height: 300px;
+    padding: 15px;
+    overflow-y: scroll;
+    h1{
+      margin-top: 0px;
+    }
+  }
+}
+
+.colum-right{
+  background-color: #D6D9E2;
 }
 
 #user_course_detail h2 {
