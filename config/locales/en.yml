@@ -33,7 +33,8 @@ en:
       start_date: "Start date:"
       end_date: "End date:"
       timeago: "you has finished subject %{time} ago"
-
+      activity_log: "Activity Log"
+      time: "%{time} ago"
     button:
       create_course: "Create"
       edit: "Edit"
@@ -195,4 +196,10 @@ en:
         name: "Name"
         email: "Email"
         change: "Change"
+  activity:
+    not_current_user: "You're not current user"
+    course_pending: "You was add to %{target}"
+    course_starting: "You was starting %{target}"
+    course_finished: "You was finished %{target}"
+    finished_task: "You completed %{target}"
 

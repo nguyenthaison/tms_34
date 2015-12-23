@@ -10,11 +10,6 @@
 #   User.create!(name:  name, email: email, password: "admin123",
 #     password_confirmation: "admin123", role: :admin)
 # end
-supervisor_id = 2
-admin = 56
-c = Course.first
-UserCourse.create(user_id: 2, course_id: c.id, is_active: false)
-UserCourse.create(user_id: 56, course_id: c.id, is_active: false)
 # 50.times do |n|
 #   name  = Faker::Name.name
 #   email = "trainee-#{n+1}@tms34.com"
@@ -27,4 +22,12 @@ UserCourse.create(user_id: 56, course_id: c.id, is_active: false)
 #   course = Course.first
 #   UserCourse.create!(user_id: user.id , course_id: course.id, is_active: false)
 # end
+
+User.create!(name: "admin", email: "admin@gmail.com", password: "password", password_confirmation: "password", role: 2)
+
+5.times do |n|
+  name = "trainee-#{n+1}"
+  email = "trainee-#{n+1}@gmail.com"
+  User.create!(name: name, email: email, password: "password", password_confirmation: "password", role: 0)
+end
 

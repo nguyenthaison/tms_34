@@ -253,3 +253,17 @@ table.table-striped {
     margin-left: 15px;
   }
 }
+
+#activity_log {
+  margin-top: 40px;
+  background-color: #fff;
+  .all_activity {
+    h3 {
+      text-align: center;
+    }
+    .not_user {
+      text-align: center;
+      color: red;
+    }
+  }
+}

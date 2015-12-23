@@ -1,4 +1,6 @@
 class UserSubject < ActiveRecord::Base
+  include Taggable
+
   belongs_to :subject
   belongs_to :user
   belongs_to :course

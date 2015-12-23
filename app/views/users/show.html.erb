@@ -1,5 +1,5 @@
 <% provide :title, t("application.general.showProfile") %>
-<div class="container">
+<div class="row container">
   <div class="col-md-7">
     <div class="row information">
       <div class="col-md-12" id="name-information">
@@ -19,6 +19,9 @@
       <% end %>
     <% end %>
   </div>
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-3" id="activity_log">
+    <%= render "activities", activities: @activities %>
+  </div>
 </div>
-
-
