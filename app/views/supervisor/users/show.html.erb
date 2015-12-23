@@ -1,0 +1,24 @@
+<% provide :title, t("application.general.showProfile") %>
+<div class="col-md-7">
+  <div class="row information">
+    <div class="col-md-12" id="name-information">
+      <div class="col-md-3"><strong><%= t "application.model.nameShow" %></strong></div>
+      <div class="col-md-9"><%= @user.name %></div>
+    </div>
+    <div class="col-md-12" id="email-information">
+      <div class="col-md-3"><strong><%= t "application.model.emailShow" %></strong></div>
+      <div class="col-md-9"><%= @user.email %></div>
+    </div>
+    <div class="col-md-12" id="level-information">
+      <div class="col-md-3"><strong><%= t "application.model.level" %></strong></div>
+      <div class="col-md-9" style="margin-left: 0px;">
+        <% if @user.role == 1 %>
+          <p class="level-name"><%= t "supervisor.levels.administrator" %></p>
+        <% else %>
+          <p class="level-name"><%= t "supervisor.levels.supervisor" %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <br/>
+</div>

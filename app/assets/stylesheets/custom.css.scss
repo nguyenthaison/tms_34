@@ -130,7 +130,18 @@ h1 {
     padding: 10px 0px;
   }
   #email-information {
+    border-bottom: 1px solid #ccc;
     padding: 10px 0px;
+  }
+  #level-information {
+    .level-name {
+      color: red;
+      font-size: 18px;
+    }
+    div {
+      margin-left: -15px;
+      padding-top: 5px;
+    }
   }
 }
 .table.table-bordered {
@@ -161,6 +172,9 @@ hr {
   h2 {
     text-align:left;
     color: #000033;
+  }
+  a {
+    color: white;
   }
 }
 
@@ -265,5 +279,19 @@ table.table-striped {
       text-align: center;
       color: red;
     }
+  }
+}
+
+.about {
+  p {
+    margin: 40px 20px;
+    line-height: 2;
+  }
+}
+
+.all_subject_detail {
+  margin-left: 12px;
+  .each_subject {
+    border-bottom: 1px solid black;
   }
 }
