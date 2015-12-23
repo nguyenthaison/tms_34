@@ -1,0 +1,10 @@
+<% @activities.each do |activity| %>
+  <p>
+    <%= t "activity.#{activity.action_type}",
+      target: activity.target_name %>
+    <span class="small">
+      <%= t "application.general.time", time: time_ago_in_words(activity.created_at) %>
+    </span>
+  </p>
+<% end %>
+<%= will_paginate(@activities) %>
