@@ -1,20 +1,21 @@
 <% provide :title, t("supervisor.subjects.allSubject") %>
-<div class="header_sub">
+<div class="col-md-9 header_sub" >
   <h1><%= t("supervisor.subjects.allSubject") %></h1>
-  <button class="btn btn-default"><%= link_to t("supervisor.subjects.newButton"), new_supervisor_subject_path %></button>
+  <button class="btn btn-primary"><%= link_to t("supervisor.subjects.newButton"), new_supervisor_subject_path %></button>
 </div>
-<div>
-  <br/>
+<div class="col-md-9 all_subject_detail">
   <br/>
   <% if @subjects.size == 0 %>
     <h3><%= t("supervisor.subjects.emptySubject") %></h3>
   <% else %>
     <div class="row">
       <% @subjects.each do |subject| %>
-        <div >
-        <h4><%= subject.name %></h4>
-        <p><%= link_to t("application.buttons.view_sub"), [:supervisor, subject],
-        class: "btn btn-primary" %></p>
+        <div class="each_subject">
+          <h4><%= subject.name %></h4>
+          <p><%= subject.description %></p>
+          <p><%= link_to t("application.buttons.view_sub"), [:supervisor, subject],
+          class: "btn btn-info" %></p>
+        </div>
       <% end %>
     </div>
   <% end %>
