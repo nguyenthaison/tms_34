@@ -2,7 +2,10 @@
   <h1><%= t "application.general.activity" %></h1>
   <div>
     <% activities.each do |activitie| %>
-      <%= activitie.description.truncate 50 %>
+      <%= activitie.description %>
+      <span class="small">
+        <%= t "application.general.timeago", time: time_ago_in_words(activitie.created_at) %>
+      </span>
     <% end %>
   </div>
 </div
