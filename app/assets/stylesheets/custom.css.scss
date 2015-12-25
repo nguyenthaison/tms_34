@@ -213,13 +213,13 @@ table.table-striped {
 
 /*activity log*/
 .colum-left{
-  border: 1px solid #F6F7F8;
-  background-color: #F9F9F9;
+  background-color: #E9EAED;
   .activity-log{
-    background-color: #DDE0E8;
+    background-color: #FFFFFF;
     height: 300px;
     padding: 15px;
     overflow-y: scroll;
+    margin-left: 10px;
     h1{
       margin-top: 0px;
     }
@@ -227,7 +227,7 @@ table.table-striped {
 }
 
 .colum-right{
-  background-color: #D6D9E2;
+  background-color: #FFFFFF;
 }
 
 #user_course_detail h2 {

@@ -33,7 +33,7 @@ en:
       close_trainee_progress: "Close"
       start_date: "Start date:"
       end_date: "End date:"
-      timeago: "you has finished subject %{time} ago"
+      timeago: "%{time} ago"
       activity_log: "Activity Log"
       time: "%{time} ago"
       facebook: "Framgia"
@@ -73,6 +73,14 @@ en:
       nameShow: "Name"
       emailShow: "Email"
       level: "Level"
+
+  activities:
+    general:
+      course_assignment: "was assigned to %{target}"
+      course_removal: "was removed from %{target}"
+      subject_completed: "completed the subject %{target}"
+      task_finished: "finished the task %{target}"
+
   errors:
     title_form: "The form contains"
     course:
@@ -109,6 +117,7 @@ en:
     index:
       enrolled_in: "You have been assigned to %{course_count}"
       course: "course"
+      no_course: "You hasn't ever joined to any courses yet"
     show:
       members: "Members: "
       title: "Course has started "
@@ -154,6 +163,7 @@ en:
         method: "Method"
         start: "Start"
         finished: "Finish"
+
     levels:
       administrator: "administrator"
       supervisor: "supervisor"

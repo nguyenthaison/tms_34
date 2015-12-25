@@ -7,7 +7,7 @@
       <%= render partial: "courses", collection: @user_courses, as: :user_course %>
       <%= will_paginate @user_courses %>
     <% else %>
-      <p><%= t(".no_course") %></p>
+      <h3><%= t(".no_course") %></h3>
     <% end %>
   </div>
 </div>

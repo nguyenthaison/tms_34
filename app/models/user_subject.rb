@@ -2,8 +2,9 @@ class UserSubject < ActiveRecord::Base
   include Taggable
 
   belongs_to :subject
-  belongs_to :user
   belongs_to :course
+  belongs_to :user
+  has_many :activities, dependent: :nullify
   has_many :user_tasks
 
   scope :by_user_of_subject, ->user, course{where course_id: course.id, user_id: user.id}
@@ -16,10 +17,7 @@ class UserSubject < ActiveRecord::Base
   private
   def finish_subject
     if status == false
-      @type_id = Activity.where(["user_id = ? AND action_type LIKE '%SUBJECT'", user.id]).pluck(:type_id)
-      unless @type_id.include? subject.id
-        Activity.add_activity Activity::ACTION[:FINISH_SUBJECT], subject.id, user.id
-      end
+      create_activity "Finish subject", user.id, subject.id, "finished_subject", course.id, id
       @tasks = self.subject.tasks
       @tasks.each do |task|
         UserTask.find_or_create_by!(user_id: self.user.id, task_id: task.id,user_subject_id: id)

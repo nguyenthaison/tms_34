@@ -1,7 +1,9 @@
 class Activity < ActiveRecord::Base
   include Rails.application.routes.url_helpers
   ACTION = {FINISH_SUBJECT: "finish_subject"}
+  belongs_to :course
   belongs_to :user
+  belongs_to :user_subjects
   before_create :create_target_name
 
   scope :activities_of_course, -> type_id {where "action_type LIKE '%course' AND type_id = ?", type_id}

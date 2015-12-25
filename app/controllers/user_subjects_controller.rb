@@ -20,8 +20,8 @@ class UserSubjectsController < ApplicationController
       @user_subject.user_tasks.find_or_initialize_by task_id: task.id,
         user_id: @user_id
     end
-    @activities = Activity.activities_of_subject(@subject)
-      .paginate page: params[:page], per_page: 10
+    @activities = @user_subject.activities.latest.paginate page: params[:page],
+      per_page: 5
   end
 
   private

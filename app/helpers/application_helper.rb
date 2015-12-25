@@ -31,10 +31,10 @@ module ApplicationHelper
 
   def trainee_progress user
     course = user.user_courses.find_by(is_active: true).course
-    user_courses = course.user_courses
+    user_subjects = UserSubject.by_user_of_subject(user, course)
     @task_finishs = 0
-    user_courses.each do |user_course|
-      @task_finishs = @task_finishs + user_course.user_tasks.size
+    user_subjects.each do |user_subject|
+      @task_finishs = @task_finishs + user_subject.user_tasks.size
     end
     subjects = course.subjects
     @number_of_tasks = 0

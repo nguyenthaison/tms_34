@@ -8,9 +8,9 @@ class CoursesController < ApplicationController
   def show
     @members = @course.users.trainees
     @subjects = @course.subjects
-    @user_subjects = UserSubject.by_user_of_subject(@course,current_user)
-    @activities = Activity.activities_of_course(@course)
-      .paginate page: params[:page], per_page: 10
+    @user_subjects = UserSubject.by_user_of_subject(current_user, @course)
+    @activities = @course.activities.latest.paginate page: params[:page],
+      per_page: 5
   end
 
   private

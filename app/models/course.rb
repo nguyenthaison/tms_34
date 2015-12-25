@@ -2,6 +2,7 @@ class Course < ActiveRecord::Base
   enum status: [:pending, :starting, :finished]
 
   belongs_to :owner, class_name: User.name, foreign_key: "user_id"
+  has_many :activities, dependent: :nullify
   has_many :user_courses, dependent: :destroy
   has_many :users, through: :user_courses
   has_many :course_subjects
@@ -23,7 +24,7 @@ class Course < ActiveRecord::Base
   scope :latest, -> {order created_at: :desc}
   scope :active, -> {where "is_active = ?" , true}
 
-  after_save :add_user_subject
+  after_save :add_user_subject, :delete_user_subject
   after_save :un_active_user_when_finish
 
   private
@@ -50,4 +51,14 @@ class Course < ActiveRecord::Base
       self.user_courses.update_all(is_active: false)
     end
   end
+
+  def delete_user_subject
+    @trainees = self.users.trainees.pluck(:id)
+    @user_ids = UserSubject.where(course_id: id).pluck(:user_id)
+    @user_deleted_ids = @user_ids - @trainees
+    @user_deleted_ids.each do |user_id|
+      UserSubject.where(user_id: user_id, course_id: id).delete_all
+    end
+  end
+
 end

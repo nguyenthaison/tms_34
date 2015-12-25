@@ -11,6 +11,6 @@ class UserTask < ActiveRecord::Base
 
   private
   def create_task_activity
-    create_activity "Finish task", user.id, task_id, "finished_task"
+    create_activity "Finish task", user.id, task_id, "finished_task", nil, user_subject.id
   end
 end

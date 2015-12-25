@@ -1,8 +1,0 @@
-<div class="all_activity">
-  <h3><strong><%= t "application.general.activity_log" %></strong></h3>
-  <% if @user == current_user  %>
-    <%= render "all_activities", activities: @activities %>
-  <% else %>
-    <p class="not_user"><%= t "activity.not_current_user" %></p>
-  <% end %>
-</div>
